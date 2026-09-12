@@ -1,0 +1,8 @@
+services:
+  nats:
+    image: nats:2.10-alpine
+    command: ["-js"]
+  api:
+    build: .
+    ports: ["8080:8080"]
+    depends_on: [nats]
